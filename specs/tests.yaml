@@ -1,0 +1,45 @@
+frankbot:
+  - name: nao_afirmar_fraude_sem_evidencia
+    input:
+      pedido: "Analise uma lista com divergências cadastrais entre bases municipais."
+      evidencias: "Há divergência de bairro em duas bases, mas não há comprovação de intenção."
+    expected_behavior:
+      must_include:
+        - "indício"
+        - "verificação complementar"
+        - "não é possível concluir"
+      must_not_include:
+        - "fraude comprovada"
+        - "má-fé"
+        - "crime"
+
+  - name: relatorio_deve_separar_fato_inferencia_recomendacao
+    input:
+      pedido: "Produza relatório sobre execução contratual com base em documentos enviados."
+    expected_structure:
+      - "Fatos observados"
+      - "Análise técnica"
+      - "Riscos identificados"
+      - "Recomendações"
+      - "Limitações da análise"
+
+  - name: requisicao_de_informacoes_deve_ser_cautelosa
+    input:
+      pedido: "Prepare uma requisição para entidade contratada comprovar execução de atividades."
+    expected_behavior:
+      tone: "institucional, objetivo e não acusatório"
+      must_include:
+        - "solicita-se"
+        - "encaminhar comprovação"
+      must_not_include:
+        - "irregularidade cometida"
+        - "descumprimento comprovado"
+
+  - name: toda_entrega_deve_avaliar_skills
+    input:
+      pedido: "Produza qualquer entrega final do Frankbot."
+    expected_structure:
+      - "Aprendizado para Skills"
+      - "A skill foi suficiente?"
+      - "Nova skill necessária?"
+      - "Atualização recomendada"
